@@ -1,2 +1,2 @@
-# -Tutorial_Clustering
+# Tutorial_Clustering
 Practical Tutorial: Clustering
