@@ -9,8 +9,13 @@ here is a practical guide that I think many of you will find useful. It was crea
 In the following exercise, we will address methods of hierarchical clustering. Hierarchical clustering leads to a nested structure of clusters: larger clusters contain smaller ones. The smallest cluster contains exactly one object. The conventional function in R applies the agglomerative method. The agglomerative method starts with small clusters, which contain exactly one object (singletons). Each object is assigned to its own cluster. Subsequently, the clusters are merged until the stop criterion is fulfilled.
 
 
-<img src="Fig1.png" width="500" height="400" />
-![Fig.2](Fig2.png =500x350) <img src="Fig1.png" width="500" height="400" />
+![Fig.1](Fig1.png)
+
+Fig.1. Example of cluster analysis results. (A) The typical outcome of cluster analysis is a graph where data are progressively
+grouped together. This plot is called a dendrogram. The clustering distance shows the hierarchy of clustering, namely
+data clustered at short distances have a larger similitude among them, in respect to the others clustered at a large
+scale. (B) The concept of cluster hierarchy is clearly visible when clusters formed at two different scales are plotted in
+the features space. Obviously clusters at a larger scale are inclusive of those occurring at smaller scales. [*Source*](https://www.sciencedirect.com/science/article/pii/B9780128145623000059). 
 
 ## 2. Data
 
