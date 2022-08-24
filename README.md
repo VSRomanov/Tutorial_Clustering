@@ -6,7 +6,7 @@ here is a practical guide that I think many of you will find useful. It was crea
 
 ## Introduction
 
-***Hierarchical clustering*** Hierarchical clustering leads to a nested structure of clusters: larger clusters contain smaller ones.
+***Hierarchical clustering.*** Hierarchical clustering leads to a nested structure of clusters: larger clusters contain smaller ones.
 The agglomerative method starts with small clusters, which contain exactly one object (singletons). Subsequently, the clusters 
 are merged into the bigger ones until the stop criterion is fulfilled.
 
@@ -20,7 +20,7 @@ them, in respect to the others clustered at a large scale. (B) The concept of cl
 formed at two different scales are plotted in the features space. Obviously clusters at a larger scale are inclusive of those 
 occurring at smaller scales. (further information see: [short video](https://www.youtube.com/watch?v=7xHsRkOdVwo))
 
-***k-means clustering*** When the number of clusters is fixed to *k*, *k*-means clustering gives a formal definition as an optimization
+***k-means clustering.*** When the number of clusters is fixed to *k*, *k*-means clustering gives a formal definition as an optimization
 problem: find the *k* cluster centers and assign the objects to the nearest cluster center, such that the squared distances from 
 the cluster are minimized. The figure below shows the *k*-means algorithm in action ([*source*](https://aman.ai/cs229/kmc/)). 
 Training examples are shown as dots, and cluster centroids are shown as crosses.
