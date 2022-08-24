@@ -20,12 +20,21 @@ them, in respect to the others clustered at a large scale. (B) The concept of cl
 formed at two different scales are plotted in the features space. Obviously clusters at a larger scale are inclusive of those 
 occurring at smaller scales. (further information see: [short video](https://www.youtube.com/watch?v=7xHsRkOdVwo))
 
-***k-means clustering*** (further information see: [short video](https://www.youtube.com/watch?v=4b5d3muPQmA))
+***k-means clustering*** When the number of clusters is fixed to *k*, *k*-means clustering gives a formal definition as an optimization
+problem: find the *k* cluster centers and assign the objects to the nearest cluster center, such that the squared distances from 
+the cluster are minimized. The figure below shows the *k*-means algorithm in action ([*source*](https://aman.ai/cs229/kmc/)). 
+Training examples are shown as dots, and cluster centroids are shown as crosses.
+
+![Fig.2](Fig2.png)
+
+(a) Original dataset. (b) Random initial cluster centroids (in this instance, not chosen to be equal to two training examples). (c-f) Illustration of running two iterations of *k*-means. In each iteration, we assign each training example to the closest cluster centroid (shown by “painting” the training examples the same color as the cluster centroid to which is assigned); then we move each cluster centroid to the mean of the points assigned to it.
+
+(further information see: [short video](https://www.youtube.com/watch?v=4b5d3muPQmA))
 
 
 **Further video links:**
 
-&nbsp;&nbsp;&nbsp;[Clustering: K-means and Hierarchical](https://www.youtube.com/watch?v=QXOkPvFM6NU)
+&nbsp;&nbsp;&nbsp;[Clustering: *k*-means and Hierarchical](https://www.youtube.com/watch?v=QXOkPvFM6NU)
 
 
 
@@ -201,7 +210,9 @@ grep("<..pattern..>", colnames(matrix.sel))
 
 After identifying columns of outliers (e.g. 'number_col_1' & 'number_col_2'), we can remove them from the analysis:
 ```r
-new.matrix <- matrix.sel[,-c(<number_col_1>, <number_col_2>)]
+number_col_1 <- ...
+number_col_2 <- ...
+new.matrix <- matrix.sel[,-c(number_col_1, number_col_2)]
 ```
 Note: to select the correct columns, instead of just a number try to use a more smart boolean expression.
 
@@ -215,7 +226,7 @@ pv <- pvclust(t(matrix.sel), method.hclust = method, method.dist = distance, nbo
 
 Select stable clusters:
 ```r
-pv.pp <- pvpick(pv, alpha= 1-p.value)
+pv.pp <- pvpick(pv, alpha = 1-p.value)
 ```
 
 How many clusters are considered as stable (*k* = number of stable clusters)? Answer:
@@ -272,25 +283,25 @@ In the step above we have defined the hierarchical clustering object:
 clustering <- hclust(dist(t(matrix.sel), method = distance), method = method)
 ```
 
-Now, let's set the number of clusters to 2 and perform k-means clustering for all samples:
+Now, let's set the number of clusters to 2 and perform *k*-means clustering for all samples:
 ```r
 number_of_clusters <- 2
 set.seed(5)
-km <- kmeans(t(matrix.sel), centers=number_of_clusters)
+km <- kmeans(t(matrix.sel), centers = number_of_clusters)
 table(km$cluster)
 ```
 
-Mark the clusters of the k-means method with different colors (see ‘my.col’ vector) and compare them with the clusters of the hierarchical clustering method. Can you figure out some differences? 
+Mark the clusters of the *k*-means method with different colors (see ‘my.col’ vector) and compare them with the clusters of the hierarchical clustering method. Can you figure out some differences? 
 ```r
 my.col <- palette()[2:3]
 col <- my.col[as.vector(km$cluster)]
 samp.col <- col[order(km$cluster)]
 
-heatmap.2(as.matrix(matrix.sel), Rowv=FALSE, Colv=as.dendrogram(clustering), scale="row", dendrogram="col", ColSideColors=samp.col, col=redgreen(75), density.info="histogram", trace="none", labRow=FALSE)
+heatmap.2(as.matrix(matrix.sel), Rowv = FALSE, Colv = as.dendrogram(clustering), scale = "row", dendrogram = "col", ColSideColors = samp.col, col = redgreen(75), density.info = "histogram", trace = "none", labRow = FALSE)
 ```
 Note: Save the plot in .png file (instructions see above, don’t forget to change the file name)
 
-Repeat this section and try out different number of clusters for k-means. Try take the number of experimental conditions in the 
+Repeat this section and try out different number of clusters for *k*-means. Try take the number of experimental conditions in the 
 dataset into account (see the original article and its supplementary data). For more colors, you can use:
 ```r
 my.col_25 <- c( "dodgerblue2", "#E31A1C", "green4", "#6A3D9A", "#FF7F00", "black", "gold1", "skyblue2", "#FB9A99", "palegreen2", "#CAB2D6", "#FDBF6F", "gray70", "khaki2", "maroon", "orchid1", "deeppink1", "blue1", "steelblue4", "darkturquoise", "green1", "yellow4", "yellow3",  "darkorange4", "brown")
