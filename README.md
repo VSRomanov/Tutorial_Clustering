@@ -25,7 +25,7 @@ problem: find the *k* cluster centers and assign the objects to the nearest clus
 the cluster are minimized. The figure below shows the *k*-means algorithm in action ([*source*](https://aman.ai/cs229/kmc/)). 
 Training examples are shown as dots, and cluster centroids are shown as crosses.
 
-![Fig.2](Fig2.png)
+<img src="Fig2.png" width="200" height="200">
 
 (a) Original dataset. (b) Random initial cluster centroids (in this instance, not chosen to be equal to two training examples). (c-f) Illustration of running two iterations of *k*-means. In each iteration, we assign each training example to the closest cluster centroid (shown by “painting” the training examples the same color as the cluster centroid to which is assigned); then we move each cluster centroid to the mean of the points assigned to it.
 
