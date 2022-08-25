@@ -10,7 +10,6 @@ here is a practical guide that I think many of you will find useful. It was crea
 The agglomerative method starts with small clusters, which contain exactly one object (singletons). Subsequently, the clusters 
 are merged into the bigger ones until the stop criterion is fulfilled.
 
-
 ![Fig.1](Fig1.png)
 
 Typical example of the hierarchical cluster analysis results ([*source*](https://www.sciencedirect.com/science/article/pii/B9780128145623000059))
