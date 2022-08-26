@@ -53,7 +53,7 @@ The dataset with 4,345 genes (rows) and 43 experimental samples (columns) is use
 
 For the analysis, download the gene expression table "covert.withsymbols.log.Dec05.tab" from the repository folder to your diretory.
 
-&nbsp;
+<br/><br/>
 **Import**
 
 Make sure that the packages ‘pvclust’ and ‘gplots’ are installed. If not, you can install these packages with the function 'install.packages()':
@@ -72,7 +72,7 @@ setwd(“ … a path to the newly created folder … “)
 matrix.org <- read.table(<file>, <additional parameters i.e. “sep”, “header”,...>)
 ```
 
-&nbsp;
+<br/><br/>
 **Pre-processing**
 
 In order to reduce complexity, before the actual clustering, we perform a gene selection.
@@ -130,7 +130,7 @@ How many genes are left after filtering? What does the parameter “0.50” in t
 'quantile()' function mean? Optional: change this parameter, so that less than 200 genes are selected.
 
 
-&nbsp;
+<br/><br/>
 **Hierarchical clustering**
 
 First, we will cluster samples. We can choose from various linkage methods and distance measures. For this exercise, we will use the 
@@ -174,7 +174,7 @@ heatmap.2(as.matrix(matrix.sel), Rowv = TRUE, Colv = as.dendrogram(clustering), 
 Note: If you select only a few genes for the heatmap you can view them by switching ‘labRow’ argument from FALSE to the vector of those gene names.
 
 
-&nbsp;
+<br/><br/>
 **Cluster stability**
 
 Because of the high variance of microarray data, it is hard to estimate 
@@ -258,7 +258,7 @@ You can avoid this, by increasing the ‘nboot’ parameter to i.e. 100 or 1000 
 #pv <- pvclust(t(matrix.sel), method.hclust = method, method.dist = distance, nboot = 1000)
 ```
 
-&nbsp;
+<br/><br/>
 **Interpretation (functional analysis)**
 
 Choose one of the ‘n_cl’ stable clusters, for example cluster 1. Or, 
@@ -290,7 +290,7 @@ in the same cluster?). Here are some ideas:
 -	Biological functions and pathways of the genes
 
 
-&nbsp;
+<br/><br/>
 **k-means clustering**
 
 In the step above we have defined the hierarchical clustering object: 
