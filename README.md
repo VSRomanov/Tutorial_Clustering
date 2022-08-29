@@ -138,7 +138,7 @@ method „Average Linkage“ (UPGMA) and the distance measure „Euclidean Dista
 such as, for example, "Single Linkage" method. [Consult the internet](https://en.wikipedia.org/wiki/UPGMA#Comparison_with_other_linkages) in order to find out differences between linkage methods and 
 to explain the various dendrogram results. Here is a graphical hint (distance measures are shown with the black lines):
 
-![Fig.3](Fig3.png)
+<img src="Fig3.png" width="600" height="400">
 
 ```r
 method <- "average"
@@ -293,12 +293,8 @@ in the same cluster?). Here are some ideas:
 <br/><br/>
 **k-means clustering**
 
-In the step above we have defined the hierarchical clustering object: 
-```r
-clustering <- hclust(dist(t(matrix.sel), method = distance), method = method)
-```
-
-Now, let's set the number of clusters to 2 and perform *k*-means clustering for all samples:
+In a step above we have defined the hierarchical clustering object ‘clustering’. Now, let's set the number of clusters to 2 and 
+perform *k*-means clustering for all samples:
 ```r
 number_of_clusters <- 2
 set.seed(5)
@@ -319,13 +315,18 @@ Note: Save the plot in .png file (instructions see above, don’t forget to chan
 Repeat this section and try out different number of clusters for *k*-means. Try take the number of experimental conditions in the 
 dataset into account (see the original article and its supplementary data). For more colors, you can use:
 ```r
-my.col_25 <- c( "dodgerblue2", "#E31A1C", "green4", "#6A3D9A", "#FF7F00", "black", "gold1", "skyblue2", "#FB9A99", "palegreen2", "#CAB2D6", "#FDBF6F", "gray70", "khaki2", "maroon", "orchid1", "deeppink1", "blue1", "steelblue4", "darkturquoise", "green1", "yellow4", "yellow3",  "darkorange4", "brown")
+my.col_25 <- c("dodgerblue2", "#E31A1C", "green4", "#6A3D9A", "#FF7F00", "black", "gold1", "skyblue2", "#FB9A99", "palegreen2", "#CAB2D6", "#FDBF6F", "gray70", "khaki2", "maroon", "orchid1", "deeppink1", "blue1", "steelblue4", "darkturquoise", "green1", "yellow4", "yellow3",  "darkorange4", "brown")
 col <- my.col_25[as.vector(km$cluster)]
 samp.col <- col[order(km$cluster)]
 ```
 
-Try the matrix without outliers (new.matrix). For the stable result, also try to select samples from the experimental groups (for example, “b”) as initial cluster centers in ‘kmeans’ function:
+Try the matrix without outliers (‘new.matrix’). For the stable result, also try to select samples from the experimental groups (for example, “b”) as initial cluster centers in ‘kmeans()’ function:
 ```r
 set.seed(5)
 km <- kmeans(t(new.matrix), centers=t(new.matrix[,c(grep("_b$", colnames(new.matrix), ignore.case = FALSE))]), iter.max = 100, nstart = 25)
 ```
+
+With that you've clustered samples by gene expression applying two commonly used algorithms, hierarchical and *k*-means clusterings. 
+As you saw, the results of hierarchical clustering is more interpretable and informative, and therefore it is easier to decide on 
+the number of clusters by looking at the dendrogram. But contrary to hierarchical clustering, *k*-means one is faster and thus 
+can handle big data better: the time complexity of *k*-means is less than that of hierarchical clustering. 
