@@ -326,6 +326,7 @@ set.seed(5)
 km <- kmeans(t(new.matrix), centers=t(new.matrix[,c(grep("_b$", colnames(new.matrix), ignore.case = FALSE))]), iter.max = 100, nstart = 25)
 ```
 
+<br/><br/>
 With that you've clustered samples by gene expression applying two commonly used algorithms, hierarchical and *k*-means clusterings. 
 As you saw, the results of hierarchical clustering is more interpretable and informative, and therefore it is easier to decide on 
 the number of clusters by looking at the dendrogram. But contrary to hierarchical clustering, *k*-means one is faster and thus 
